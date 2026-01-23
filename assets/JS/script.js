@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
         // Show first image smoothly
         const firstWrapper = document.querySelector(".content-wraper");
         firstWrapper.style.opacity = "1";
-    }, 10000);
+    }, 5000);
 
 
     logo.addEventListener("click", function(e){
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Move to the next content-wrapper
             currentIndex2 = (currentIndex2 + 1) % contentWrappers.length;
-        }, 500); // Change this interval as needed
+        }, 300); // Change this interval as needed
     }
 
     function pauseCycling() {
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Start the cycle
     setTimeout(() => {
         cycleContentWrappers();
-    }, 10000);
+    }, 5000);
 
 
  })
