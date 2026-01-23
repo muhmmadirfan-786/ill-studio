@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Move to the next content-wrapper
             currentIndex2 = (currentIndex2 + 1) % contentWrappers.length;
-        }, 300); // Change this interval as needed
+        }, 100); // Change this interval as needed
     }
 
     function pauseCycling() {
