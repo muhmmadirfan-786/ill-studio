@@ -5,9 +5,28 @@ document.addEventListener("DOMContentLoaded", function(){
     const logo = document.querySelector(".logo");
     const aboutSection = document.querySelector(".about-section");
 
+    // Preload all images during the 10 second wait
+    function preloadImages() {
+        const imageUrls = [];
+        for (let i = 1; i <= 67; i++) {
+            imageUrls.push(`assets/Images/image-${i}.webp`);
+        }
+        
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
+    }
+
+    // Start preloading immediately
+    preloadImages();
+
     setTimeout(() => {
         heroSection.classList.add("d-none");
         imagesSection.classList.remove("d-none");
+        // Show first image smoothly
+        const firstWrapper = document.querySelector(".content-wraper");
+        firstWrapper.style.opacity = "1";
     }, 10000);
 
 
@@ -120,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Move to the next content-wrapper
             currentIndex2 = (currentIndex2 + 1) % contentWrappers.length;
-        }, 1000); // Change this interval as needed
+        }, 500); // Change this interval as needed
     }
 
     function pauseCycling() {

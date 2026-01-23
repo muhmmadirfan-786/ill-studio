@@ -7,6 +7,19 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preload first few images -->
+    <link rel="preload" href="assets/Images/image-1.webp" as="image">
+    <link rel="preload" href="assets/Images/image-2.webp" as="image">
+    <link rel="preload" href="assets/Images/image-3.webp" as="image">
+    <link rel="preload" href="assets/Images/image-4.webp" as="image">
+    <link rel="preload" href="assets/Images/image-5.webp" as="image">
+    <link rel="preload" href="assets/Images/image-6.webp" as="image">
+    <link rel="preload" href="assets/Images/image-7.webp" as="image">
+    <link rel="preload" href="assets/Images/image-8.webp" as="image">
+    <link rel="preload" href="assets/Images/image-9.webp" as="image">
+    <link rel="preload" href="assets/Images/image-10.webp" as="image">
+    
     <title>Ill Studio</title>
 </head>
 <body>
@@ -57,12 +70,12 @@
     </section>
 
     <section class="images-section d-none">
-        <div class="content-wraper">
+        <div class="content-wraper" style="opacity: 0;">
             <div class="image-content d-none">
                 <h2 class="image-title">Portrait 1</h2>
                 <p class="image-decription">Professional portrait photography</p>
             </div>
-            <img class="image" width="100%" height="100%" src="assets/Images/image-1.webp" alt="image" fetchpriority="high" loading="lazy">
+            <img class="image" width="100%" height="100%" src="assets/Images/image-1.webp" alt="image" fetchpriority="high" loading="eager">
         </div>
         <div class="content-wraper d-none">
             <div class="image-content d-none">
