@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const logo = document.querySelector(".logo");
     const aboutSection = document.querySelector(".about-section");
 
-    // Preload all images during the 10 second wait
+    // Preload all images during the 5 second wait
     function preloadImages() {
         const imageUrls = [];
         for (let i = 1; i <= 67; i++) {
@@ -158,3 +158,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
  })
+
+//  const fs = require('fs');
+
+// let content = fs.readFileSync('d:\\\\html project\\\\2026-html-project\\\\Ill-Studio\\\\index.html', 'utf8');
+
+// // Replace all remaining instances of loading="lazy"> with fetchpriority="low" loading="lazy">
+// content = content.replace(/alt="image"  loading="lazy">/g, 'alt="image" fetchpriority="low" loading="lazy">');
+
+// fs.writeFileSync('d:\\\\html project\\\\2026-html-project\\\\Ill-Studio\\\\index.html', content);
+// console.log('Updated all images with fetchpriority');
