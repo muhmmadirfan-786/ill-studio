@@ -27,15 +27,9 @@
             background: #000;
             color: #fff;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px;
-            text-transform: uppercase;
-            font-size: 16px;
-            line-height: 1.4;
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
         }
 
         .background-video {
@@ -46,71 +40,104 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.7;
         }
 
-        .content-overlay {
+        .content-container {
             position: relative;
             z-index: 1;
-            width: 100%;
-            height: 100%;
-            display: flex;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
             align-items: center;
-            justify-content: space-between;
+            padding: 0 60px;
+            gap: 40px;
         }
 
-        .left {
-            flex: 0 0 auto;
+        .left-section {
+            justify-self: start;
         }
 
-        .logo {
-            height: 40px;
-            width: auto;
+        .logo-text {
+            font-size: 120px;
+            font-weight: bold;
+            color: #ff0000;
+            line-height: 0.8;
+            letter-spacing: -2px;
         }
 
-        .center {
-            flex: 1;
-            max-width: 600px;
-            margin: 0 60px;
+        .center-section {
+            justify-self: center;
+            max-width: 500px;
             text-align: left;
         }
 
-        .right {
-            flex: 0 0 auto;
+        .main-text {
+            font-size: 14px;
+            line-height: 1.3;
+            color: #ff0000;
+            letter-spacing: 0.5px;
+        }
+
+        .right-section {
+            justify-self: end;
             text-align: right;
         }
 
-        .contact {
-            margin-bottom: 20px;
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ff0000;
         }
 
-        a {
-            color: #fff;
+        .contact-info a {
+            color: #ff0000;
             text-decoration: none;
         }
 
-        a:hover {
+        .contact-info a:hover {
             opacity: 0.7;
         }
 
+        @media (max-width: 1200px) {
+            .logo-text {
+                font-size: 80px;
+            }
+            
+            .content-container {
+                padding: 0 40px;
+            }
+        }
+
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                padding: 20px;
+            .content-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                justify-items: center;
                 text-align: center;
-                font-size: 14px;
+                padding: 40px 20px;
+                gap: 30px;
             }
 
-            .center {
-                margin: 40px 0;
+            .left-section,
+            .center-section,
+            .right-section {
+                justify-self: center;
+            }
+
+            .logo-text {
+                font-size: 60px;
+            }
+
+            .center-section {
                 max-width: 100%;
+                text-align: center;
             }
 
-            .logo {
-                height: 30px;
+            .main-text {
+                font-size: 12px;
             }
 
-            .right {
+            .right-section {
                 text-align: center;
             }
         }
@@ -121,20 +148,20 @@
         <source src="assets/video/PORTRAIT-INSTA-V0-IMAGES.mov" type="video/mp4">
     </video>
     
-    <div class="content-overlay">
-        <div class="left">
-            <img src="assets/Images/portat-logo.png" alt="Portrait Logo" class="logo">
+    <div class="content-container">
+        <div class="left-section">
+            <div class="logo-text">PORTRAIT</div>
         </div>
 
-        <div class="center">
-            A PORTRAIT IS A VISUAL MODELING OF HUMAN ESSENCE. CAPTURING NOT JUST APPEARANCE, BUT A SUBTLE SYSTEM OF EMOTIONS, CONTEXTS, AND INTENTIONS. IT IS A CONDENSED NARRATIVE WHERE FORM, LIGHT, AND GESTURE BECOME LANGUAGE. PORTRAIT IS A BRUSSELS-BASED STUDIO FOUNDED BY A DUO OF DIRECTORS AND A DIRECTOR OF PHOTOGRAPHY, DEDICATED TO CREATING CONTENT GUIDED BY THIS VERY PHILOSOPHY.
-        </div>
-
-        <div class="right">
-            <div class="contact">
-                <a href="mailto:info@portraitbrussels.com">INFO@PORTRAITBRUSSELS.COM</a>
+        <div class="center-section">
+            <div class="main-text">
+                A PORTRAIT IS A VISUAL MODELING OF HUMAN ESSENCE. CAPTURING NOT JUST APPEARANCE, BUT A SUBTLE SYSTEM OF EMOTIONS, CONTEXTS, AND INTENTIONS. IT IS A CONDENSED NARRATIVE WHERE FORM, LIGHT, AND GESTURE BECOME LANGUAGE. PORTRAIT IS A BRUSSELS-BASED STUDIO FOUNDED BY A DUO OF DIRECTORS AND A DIRECTOR OF PHOTOGRAPHY, DEDICATED TO CREATING CONTENT GUIDED BY THIS VERY PHILOSOPHY.
             </div>
-            <div class="contact">
+        </div>
+
+        <div class="right-section">
+            <div class="contact-info">
+                <a href="mailto:info@portraitbrussels.com">INFO@PORTRAITBRUSSELS.COM</a><br>
                 <a href="https://instagram.com/portrait.brussels" target="_blank">@PORTRAIT.BRUSSELS</a>
             </div>
         </div>
@@ -143,7 +170,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.background-video');
-            video.play().catch(e => console.log('Video autoplay failed:', e));
+            if (video) {
+                video.play().catch(e => console.log('Video autoplay failed:', e));
+            }
         });
     </script>
 </body>
