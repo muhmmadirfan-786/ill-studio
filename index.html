@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portrait Brussels - Visual modeling of human essence">
     <title>Portrait Brussels</title>
-    
-    <!-- Font Face -->
+
     <style>
         @font-face {
             font-family: 'ABCFavoritMono';
@@ -27,15 +26,13 @@
             background: #000;
             color: #fff;
             height: 100vh;
-            position: relative;
             overflow: hidden;
             text-transform: uppercase;
         }
 
         .background-video {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -43,8 +40,6 @@
         }
 
         .content-container {
-            position: relative;
-            z-index: 1;
             height: 100vh;
             display: grid;
             grid-template-columns: 370px 1fr 240px;
@@ -56,34 +51,31 @@
             justify-self: start;
         }
 
+        /* 1. LOGO FIX */
         .logo-image {
-            height: 95px;
-            width: auto;
+            width: 330px;
+            height: auto;
         }
 
         .center-section {
             justify-self: center;
-            max-width: 610px;
+            max-width: 630px;
             text-align: left;
         }
 
+        /* 2. TEXT FIX */
         .main-text {
             font-size: 13px;
-            /* line-height: 1.6; */
+            line-height: 1.35;
+            letter-spacing: -0.2px;
             color: #ff0000;
-            /* letter-spacing: 2px; */
-            /* word-spacing: 4px; */
         }
 
-        /* .right-section {
-            justify-self: end;
-            text-align: right;
-        } */
-
         .contact-info {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.8;
             color: #ff0000;
+            /* text-align: right; */
         }
 
         .contact-info a {
@@ -94,85 +86,80 @@
         .contact-info a:hover {
             opacity: 0.7;
         }
-
-        @media (max-width: 1200px) {
-            .logo-image {
-                height: 80px;
-            }
-            
-            .content-container {
-                padding: 0 40px;
-            }
+        .d-lg-none{
+            display: none;
         }
+        .d-lg-block{
+            display: block;
+        }
+        
 
         @media (max-width: 768px) {
             .content-container {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
-                justify-items: center;
-                text-align: center;
-                padding: 40px 20px;
                 gap: 30px;
-            }
-
-            .left-section,
-            .center-section,
-            .right-section {
-                justify-self: center;
-            }
-
-            .logo-image {
-                height: 60px;
+                padding: 40px 20px;
+                text-align: center;
             }
 
             .center-section {
-                max-width: 100%;
+                text-align: center;
+            }
+            .left-section {
+                justify-self: center;
+            }
+
+            .contact-info {
                 text-align: center;
             }
 
-            .main-text {
-                font-size: 12px;
+            .logo-image {
+                width: 200px;
             }
-
-            .right-section {
-                text-align: center;
-            }
+            .d-block{
+            display: block;
+        }
+        .d-none{display: none;}
         }
     </style>
 </head>
 <body>
-    <video class="background-video" autoplay muted loop playsinline>
-        <!-- <source src="assets/video/PORTRAIT-INSTA-V0-IMAGES.mov" type="video/mp4"> -->
-        <source src="assets/video/new-video.mov" type="video/mp4">
 
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="assets/video/new-video.mov" type="video/mp4">
     </video>
-    
+
     <div class="content-container">
+
         <div class="left-section">
             <img src="assets/video/portrate-logo.png" alt="Portrait Logo" class="logo-image">
         </div>
 
         <div class="center-section">
-            <div class="main-text">
-                A PORTRAIT IS A VISUAL MODELING OF HUMAN ESSENCE. CAPTURING NOT JUST APPEARANCE, BUT A SUBTLE SYSTEM OF EMOTIONS, CONTEXTS, AND INTENTIONS. IT IS A CONDENSED NARRATIVE WHERE FORM, LIGHT, AND GESTURE BECOME LANGUAGE. PORTRAIT IS A BRUSSELS-BASED STUDIO FOUNDED BY A DUO OF DIRECTORS AND A DIRECTOR OF PHOTOGRAPHY, DEDICATED TO CREATING CONTENT GUIDED BY THIS VERY PHILOSOPHY.
+            <div class="main-text d-lg-block d-none">
+                A PORTRAIT IS A VISUAL MODELING OF HUMAN ESSENCE. CAPTURING NOT JUST APPEARANCE,<br>
+                BUT A SUBTLE SYSTEM OF EMOTIONS, CONTEXTS, AND INTENTIONS.<br>
+                IT IS A CONDENSED NARRATIVE WHERE FORM, LIGHT, AND GESTURE BECOME LANGUAGE.<br>
+                PORTRAIT IS A BRUSSELS-BASED STUDIO FOUNDED BY A DUO OF DIRECTORS AND A<br>
+                DIRECTOR OF PHOTOGRAPHY, DEDICATED TO CREATING CONTENT GUIDED BY THIS VERY PHILOSOPHY.
+            </div>
+            <div class="main-text d-lg-none  d-block">
+                A PORTRAIT IS A VISUAL MODELING OF HUMAN ESSENCE. CAPTURING NOT JUST APPEARANCE,
+                BUT A SUBTLE SYSTEM OF EMOTIONS, CONTEXTS, AND INTENTIONS.
+                IT IS A CONDENSED NARRATIVE WHERE FORM, LIGHT, AND GESTURE BECOME LANGUAGE.
+                PORTRAIT IS A BRUSSELS-BASED STUDIO FOUNDED BY A DUO OF DIRECTORS AND A
+                DIRECTOR OF PHOTOGRAPHY, DEDICATED TO CREATING CONTENT GUIDED BY THIS VERY PHILOSOPHY.
             </div>
         </div>
 
         <div class="right-section">
             <div class="contact-info">
                 <a href="mailto:info@portraitbrussels.com">INFO@PORTRAITBRUSSELS.COM</a><br>
-                <a href="https://instagram.com/portrait.brussels" target="_blank">@PORTRAIT.BRUSSELS</a>
+                <a href="https://instagram.com/portrait.brussels" target="_blank">@PORTRAIT_BRUSSELS</a>
             </div>
         </div>
+
     </div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.background-video');
-            if (video) {
-                video.play().catch(e => console.log('Video autoplay failed:', e));
-            }
-        });
-    </script>
+
 </body>
 </html>
